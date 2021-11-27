@@ -1,0 +1,9 @@
+[submodule "engine"]
+	path = engine
+	url = git@github.com:Playrix/engine.git
+[submodule "libs/lib-cppcommon"]
+	path = libs/lib-cppcommon
+	url = git@github.com:Playrix/lib-cppcommon.git
+[submodule "libs/lua-toolkit"]
+	path = libs/lua-toolkit
+	url = git@github.com:Playrix/lua-toolkit.git
