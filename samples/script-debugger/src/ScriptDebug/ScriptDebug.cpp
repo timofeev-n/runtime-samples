@@ -21,7 +21,7 @@ public:
 		using namespace Runtime::Async;
 
 
-		// Задача запускается на Runtime планировщике, но для запуска сессий используется scriptScheduler
+		// Задача запускается на Runtime планировщике, но для запуска сессий используется scriptScheduler.
 		_remotingTask = Async::Run([this](Scheduler::Ptr scriptScheduler) -> Task<> {
 
 			_remotingController = CreateSampleRemotingController(std::move(scriptScheduler));
@@ -30,7 +30,7 @@ public:
 			co_await _remotingController->Run(GetRemoteServiceBindAddress());
 			LOG_DEBUG("[ScriptDebugger] Stop Lua remoting");
 		
-		}, RuntimeState::Instance().Scheduler(), Scheduler::GetCurrent());
+		}, RuntimeState::Instance().Scheduler(), Scheduler::GetCurrent()); // вместо RuntimeState::Instance().Scheduler() можно попробовать Async::Scheduler::GetDefault()
 	}
 
 	~ScriptDebugSupportImpl() {
@@ -49,8 +49,6 @@ public:
 			co_await _remotingController->DisposeAsync();
 			co_await _remotingTask;
 		}, RuntimeState::Instance().Scheduler()));
-
-		std::cout << "Good bye\n";
 	}
 
 

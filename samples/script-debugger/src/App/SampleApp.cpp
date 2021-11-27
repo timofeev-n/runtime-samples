@@ -66,12 +66,6 @@ private:
 		// Должен быть создан после инициализации приложения и создания экземпляра Runtime.
 		const auto scriptDebug = ScriptDebug::ScriptDebugSupport::Create();
 
-		//Runtime::Async::Run([] {
-
-		//	auto [protocol, address] = Runtime::Remoting::SocketAddress::ParseAddressString("tcp://:62847");
-
-		//}, Runtime::RuntimeState::Instance().Scheduler());
-
 		{
 			const auto execGuard =  boost::asio::make_work_guard(_ioContext);
 
@@ -80,7 +74,7 @@ private:
 			}
 		}
 
-		std::cout << "app done.\n";
+		std::cout << "app loop stopped.\n";
 	}
 
 	void Stop() override {
