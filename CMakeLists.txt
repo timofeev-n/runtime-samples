@@ -17,6 +17,14 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH}
 include(maker)
 include(compiler_setup)
 
+# Глобальные настройки Xcode под macOS
+maker_set_global_xcode_properties( MACOSX
+	SDKROOT macosx _
+	MACOSX_DEPLOYMENT_TARGET "10.10" _
+	VALID_ARCHS "x86_64"
+)
+
+
 maker_initialize(
 	COMMON
 		SUBDIRECTORIES
