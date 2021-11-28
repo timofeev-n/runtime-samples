@@ -30,3 +30,5 @@ build/**
 win/*.exp
 win/*.exe
 win/*.pdb
+
+documentation/output**
